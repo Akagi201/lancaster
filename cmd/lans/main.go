@@ -9,8 +9,8 @@ import (
 )
 
 func msgHandler(src *net.UDPAddr, n int, b []byte) {
-	log.Println(n, "bytes read from", src)
-	log.Println(hex.Dump(b[:n]))
+	log.Info(n, " bytes read from ", src)
+	log.Info(hex.Dump(b[:n]))
 }
 
 func main() {

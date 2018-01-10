@@ -1,9 +1,11 @@
 package main
 
 import (
+	"encoding/json"
 	"time"
 
 	"github.com/Akagi201/lancaster/mcast"
+	"github.com/Akagi201/utilgo/ips"
 	log "github.com/sirupsen/logrus"
 )
 
@@ -14,7 +16,9 @@ func ping(addr string) {
 	}
 
 	for {
-		conn.Write([]byte("hello, world\n"))
+		myIPs, _ := ips.LocalIPs()
+		b, _ := json.Marshal(myIPs)
+		conn.Write(b)
 		time.Sleep(1 * time.Second)
 	}
 }
