@@ -16,7 +16,7 @@ func ping(addr string) {
 	}
 
 	for {
-		myIPs, _ := ips.LocalIPs()
+		myIPs, _ := ips.LocalIPv4s()
 		b, _ := json.Marshal(myIPs)
 		conn.Write(b)
 		time.Sleep(1 * time.Second)
