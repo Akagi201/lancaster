@@ -1,0 +1,12 @@
+[Unit]
+Description=Lancaster Client
+Wants=network-online.target
+After=network.target network-online.target
+
+[Service]
+Type=simple
+ExecStartPre=/bin/sh -c 'until ping -c1 baidu.com; do sleep 1; done;'
+ExecStart=/usr/local/bin/lanc
+
+[Install]
+WantedBy=multi-user.target
