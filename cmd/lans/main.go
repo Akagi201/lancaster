@@ -1,7 +1,6 @@
 package main
 
 import (
-	"encoding/hex"
 	"net"
 
 	"github.com/Akagi201/lancaster/mcast"
@@ -9,10 +8,11 @@ import (
 )
 
 func msgHandler(src *net.UDPAddr, n int, b []byte) {
-	log.Info(n, " bytes read from ", src)
-	log.Info(hex.Dump(b[:n]))
+	log.Infof("%v bytes read from %v", n, src)
+	log.Infof("Discovered %v", string(b))
 }
 
 func main() {
+	log.Infof("Lancaster server listening on %v", opts.McastAddr)
 	mcast.Listen(opts.McastAddr, msgHandler)
 }

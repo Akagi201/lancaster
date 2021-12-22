@@ -4,6 +4,7 @@ go 1.18
 
 require (
 	github.com/Akagi201/utilgo v0.0.0-20211102094609-8ed0bac22dba
+	github.com/avast/retry-go v3.0.0+incompatible
 	github.com/jessevdk/go-flags v1.5.0
 	github.com/sirupsen/logrus v1.8.1
 )
